@@ -31,15 +31,17 @@ app.post('/yelpBot', function(req, res) {
       //console.log(prettyJson);
       res.setHeader('Content-Type', 'application/json');
 
-      res.send(JSON.stringify("fulfillmentMessages": [
-        {
-          "text": {
-            "text": [
-              "Ricerca completata"
-            ]
+      res.send(JSON.stringify({
+        "fulfillmentMessages": [
+          {
+            "text": {
+              "text": [
+                "Ricerca completata"
+              ]
+            }
           }
-        }
-      ]));
+        ]
+      }));
     }).catch(e => {
       console.log(e);
     });
