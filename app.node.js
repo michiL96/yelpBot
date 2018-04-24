@@ -25,11 +25,6 @@ app.post('/yelpBot', function(req, res) {
       location: location
     };
     client.search(searchRequest).then(response => {
-      //const firstResult = response.jsonBody.businesses[0];
-      //const prettyJson = JSON.stringify(firstResult, null, 4);
-      //console.log(response);
-      //console.log(prettyJson);
-
       var results = response.jsonBody.businesses;
       var maxLimit = 20;
       var messages = [{
