@@ -25,9 +25,9 @@ app.post('/', function(req, res) {
       location: location
     };
     client.search(searchRequest).then(response => {
-      const firstResult = response.jsonBody.businesses[0];
-      const prettyJson = JSON.stringify(firstResult, null, 4);
-      console.log(response);
+      //const firstResult = response.jsonBody.businesses[0];
+      //const prettyJson = JSON.stringify(firstResult, null, 4);
+      //console.log(response);
       //console.log(prettyJson);
       res.setHeader('Content-Type', 'application/json');
       res.send(JSON.stringify({
