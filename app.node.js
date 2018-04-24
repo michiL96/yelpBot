@@ -19,7 +19,7 @@ app.post('/yelpBot', function(req, res) {
   if (req.body.queryResult.action === 'search') {
     var term = req.body.queryResult.parameters.terms;
     var location = req.body.queryResult.parameters.location;
-
+    console.log("location: "+location);
     var searchRequest = {
       term: term,
       location: location
