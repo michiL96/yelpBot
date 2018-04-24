@@ -32,7 +32,11 @@ app.post('/yelpBot', function(req, res) {
 
       var results = response.jsonBody.businesses;
       var maxLimit = 20;
-      var messages = ["Restaurants found:"];
+      var messages = [{
+        "text": {
+          "text": ["Restaurants found:"]
+        }
+      }];
 
       for (var i = 0; i < results.length && i < maxLimit; i++) {
         messages.push({
