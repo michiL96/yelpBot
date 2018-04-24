@@ -11,11 +11,11 @@ const client = yelp.client(apiKey);
 
 var requestsArray = [];
 
-app.get('/', function(req, res) {
+app.get('/yelpBot', function(req, res) {
   res.send(requestsArray);
 });
 
-app.post('/', function(req, res) {
+app.post('/yelpBot', function(req, res) {
   if (req.body.queryResult.action === 'search') {
     var term = req.body.queryResult.parameters.terms;
     var location = req.body.queryResult.parameters.location;
