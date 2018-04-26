@@ -28,24 +28,39 @@ app.post('/yelpBot', function(req, res) {
     client.search(searchRequest).then(response => {
       var results = response.jsonBody.businesses;
       var maxLimit = 20;
-      var messages = [{
+      /*var messages = [{
         "text": {
           "text": ["Restaurants found:"]
         }
-      }];
+      }];*/
+      var messages = [];
+      messages.push({
+        type: 0,
+        speech: 'You have ' + instances.length + ' instances.'
+      });
 
       for (var i = 0; i < results.length && i < maxLimit; i++) {
-        messages.push({
+        /*messages.push({
           "text": {
             "text": ["Name: " + results[i].name + "; Location: " + results[i].location.city + ", " + results[i].location.country]
           }
+        });*/
+        var answerTxt = "Name: " + results[i].name + "; Location: " + results[i].location.city + ", " + results[i].location.country;
+        messages.push({
+          type: 0,
+          speech: answerTxt
         });
       }
+      var answer = {
+        speech: '',
+        messages: messages,
+      };
 
       res.setHeader('Content-Type', 'application/json');
-      res.send(JSON.stringify({
+      /*res.send(JSON.stringify({
         "fulfillmentMessages": messages
-      }));
+      }));*/
+      res.send(JSON.stringify(answer));
     }).catch(e => {
       console.log(e);
     });
