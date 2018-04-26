@@ -40,7 +40,7 @@ app.post('/yelpBot', function(req, res) {
       var messages = [];
       messages.push({
         type: 0,
-        speech: 'You have ' + instances.length + ' instances.'
+        speech: "Restaurants found:"
       });
 
       for (var i = 0; i < results.length && i < maxLimit; i++) {
