@@ -17,9 +17,13 @@ app.get('/yelpBot', function(req, res) {
 
 app.post('/yelpBot', function(req, res) {
   console.log("here");
-  if (req.body.queryResult.action === 'search') {
-    var term = req.body.queryResult.parameters.terms;
-    var location = req.body.queryResult.parameters.location;
+  //if (req.body.queryResult.action === 'search') {
+  if (req.body.result.action === 'search') {
+    //var term = req.body.queryResult.parameters.terms;
+    //var location = req.body.queryResult.parameters.location;
+
+    var term = req.body.result.parameters.terms;
+    var location = req.body.result.parameters.location;
     console.log("location: "+location);
     var searchRequest = {
       term: term,
